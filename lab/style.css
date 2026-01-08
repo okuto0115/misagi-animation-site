@@ -1,3 +1,17 @@
+/*
+【ファイル】lab/style.css
+【役割】ラボページの見た目（表・余白・色）を整える
+【触ってOK】配色、余白、文字サイズ
+【注意】ここは lab 専用。トップページの見た目には影響しない
+【関連】lab/index.html
+【確認】/lab/ を開いて見た目確認
+*/
+/*
+===== 調整パラメータ（ここだけ触ってOK）=====
+・body の背景色と文字色
+・テーブルの影や枠線の色
+===== ここから下は基本触らない =====
+*/
 :root {
   color-scheme: light;
 }
@@ -9,7 +23,9 @@
 body {
   margin: 0;
   font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  /* 触ってOK: 背景色（ラボの雰囲気） */
   background: #f7f6fb;
+  /* 触ってOK: 文字色（読みやすさ） */
   color: #1e1d24;
   padding: 32px clamp(16px, 5vw, 48px) 64px;
 }
@@ -35,6 +51,7 @@ body {
   background: #ffffff;
   border-radius: 16px;
   padding: 24px;
+  /* 触ってOK: 影の濃さ（カード感） */
   box-shadow: 0 16px 40px rgba(39, 30, 76, 0.08);
 }
 
@@ -53,6 +70,7 @@ th,
 td {
   text-align: left;
   padding: 12px 10px;
+  /* 触ってOK: 表の境界線の色 */
   border-bottom: 1px solid #eceaf2;
   vertical-align: top;
 }

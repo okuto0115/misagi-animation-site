@@ -1,5 +1,49 @@
+/*
+【ファイル】effects/scroll.js
+【役割】スクロール量で背景とクマ演出を変化させる
+【触ってOK】色の変化、速度倍率、イージング
+【注意】requestAnimationFrameで更新。重くならない設定推奨
+【関連】effects/registry.js / style.css
+【確認】/?fx=scroll で動作確認
+*/
+// ===== 調整パラメータ（ここだけ触ってOK）=====
+// スクロール追従のなめらかさ（小さいほどゆっくり追従）
 const SCROLL_EASE = 0.08;
+// 追加バーストの間隔（ms、短いほど頻繁）
 const BURST_INTERVAL = 220;
+// バーストの最小数（スクロール時に追加される数）
+const BURST_COUNT_MIN = 2;
+// バーストの最大数（スクロール時に追加される数）
+const BURST_COUNT_MAX = 4;
+// 背景の色変化（上部の色相スタート）
+const BG_TOP_HUE_START = 10;
+// 背景の色変化（上部の色相の増加量）
+const BG_TOP_HUE_SHIFT = 30;
+// 背景の色変化（中央の色相スタート）
+const BG_MID_HUE_START = 260;
+// 背景の色変化（中央の色相の減少量）
+const BG_MID_HUE_SHIFT = 40;
+// 背景の色変化（下部の色相スタート）
+const BG_BOTTOM_HUE_START = 5;
+// 背景の色変化（下部の色相の増加量）
+const BG_BOTTOM_HUE_SHIFT = 15;
+// 明るさの変化（上部の明るさスタート）
+const BG_TOP_LIGHT_START = 96;
+// 明るさの変化（上部の明るさの減少量）
+const BG_TOP_LIGHT_SHIFT = 4;
+// 明るさの変化（中央の明るさスタート）
+const BG_MID_LIGHT_START = 95;
+// 明るさの変化（中央の明るさの減少量）
+const BG_MID_LIGHT_SHIFT = 5;
+// 明るさの変化（下部の明るさスタート）
+const BG_BOTTOM_LIGHT_START = 100;
+// 明るさの変化（下部の明るさの減少量）
+const BG_BOTTOM_LIGHT_SHIFT = 4;
+// クマのサイズ倍率（増加量）
+const BEAR_SCALE_SHIFT = 0.35;
+// クマの落下速度倍率（増加量）
+const BEAR_SPEED_SHIFT = 0.6;
+// ===== ここから下は基本触らない =====
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const pick = (min, max) => Math.random() * (max - min) + min;
@@ -17,14 +61,15 @@ export const effect = {
     };
 
     const applyScrollEffects = (progress) => {
-      const topHue = 10 + progress * 30;
-      const midHue = 260 - progress * 40;
-      const bottomHue = 5 + progress * 15;
-      const topLight = 96 - progress * 4;
-      const midLight = 95 - progress * 5;
-      const bottomLight = 100 - progress * 4;
-      const scale = 1 + progress * 0.35;
-      const speed = 1 + progress * 0.6;
+      const topHue = BG_TOP_HUE_START + progress * BG_TOP_HUE_SHIFT;
+      const midHue = BG_MID_HUE_START - progress * BG_MID_HUE_SHIFT;
+      const bottomHue = BG_BOTTOM_HUE_START + progress * BG_BOTTOM_HUE_SHIFT;
+      const topLight = BG_TOP_LIGHT_START - progress * BG_TOP_LIGHT_SHIFT;
+      const midLight = BG_MID_LIGHT_START - progress * BG_MID_LIGHT_SHIFT;
+      const bottomLight =
+        BG_BOTTOM_LIGHT_START - progress * BG_BOTTOM_LIGHT_SHIFT;
+      const scale = 1 + progress * BEAR_SCALE_SHIFT;
+      const speed = 1 + progress * BEAR_SPEED_SHIFT;
 
       document.documentElement.style.setProperty(
         "--bg-top",
@@ -69,7 +114,7 @@ export const effect = {
       const now = performance.now();
       if (context.spawnBear && now - lastBurstTime > BURST_INTERVAL) {
         lastBurstTime = now;
-        const burst = Math.round(pick(2, 4));
+        const burst = Math.round(pick(BURST_COUNT_MIN, BURST_COUNT_MAX));
         context.spawnBear(burst);
       }
 

@@ -1,18 +1,40 @@
+/*
+【ファイル】style.css
+【役割】サイト全体の見た目（文字・余白・色・レイアウト）
+【触ってOK】フォント、背景、セクションの余白
+【注意】クマ演出の見た目は effects 側で追加される場合あり
+【関連】index.html / script.js
+【確認】保存→ブラウザ自動反映
+*/
+/*
+===== 調整パラメータ（ここだけ触ってOK）=====
+・:root の背景色（スクロール演出で変化）
+・body のフォントと背景
+・.bear の影の強さ
+===== ここから下は基本触らない =====
+*/
 * {
   box-sizing: border-box;
 }
 
 :root {
+  /* 背景上部の色（スクロールで変化） */
   --bg-top: hsl(10 100% 96%);
+  /* 背景中央の色（スクロールで変化） */
   --bg-mid: hsl(260 80% 95%);
+  /* 背景下部の色（スクロールで変化） */
   --bg-bottom: hsl(0 0% 100%);
+  /* クマのサイズ倍率（scroll演出が変更） */
   --bear-scale: 1;
+  /* クマの速度倍率（scroll演出が変更） */
   --bear-speed: 1;
 }
 
 body {
   margin: 0;
+  /* 触ってOK: フォントを変えると雰囲気が変わる */
   font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  /* 触ってOK: 背景グラデーションの雰囲気 */
   background: radial-gradient(circle at top, var(--bg-top) 0%, var(--bg-mid) 40%, var(--bg-bottom) 100%);
   min-height: 100vh;
   overflow-x: hidden;
@@ -32,6 +54,7 @@ body {
   font-size: calc(var(--size, 32px) * var(--bear-scale, 1));
   opacity: 0;
   animation: bear-fall calc(var(--duration, 4s) * var(--bear-speed, 1)) ease-in var(--delay, 0s) forwards;
+  /* 触ってOK: 影を強くすると立体感が出る */
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
 }
 

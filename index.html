@@ -1,3 +1,17 @@
+<!--
+【ファイル】index.html
+【役割】トップページの構造と導線をまとめる
+【触ってOK】見出し文、本文、セクション順
+【注意】演出は script.js が担当。ここは構造だけ。
+【関連】style.css / script.js
+【確認】Live Serverで表示確認
+-->
+<!--
+===== 調整パラメータ（ここだけ触ってOK）=====
+・タイトルや説明文（h1 / p / ボタン）
+・Scene見出しと本文
+===== ここから下は基本触らない =====
+-->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -42,25 +56,34 @@
 </head>
 <body>
 
+  <!-- 触ってOK: タイトル文 -->
   <h1>Misagi Animation Site</h1>
+  <!-- 触ってOK: 説明文 -->
   <p>環境構築テスト成功 🎉</p>
+  <!-- 触ってOK: ボタン文言 -->
   <button type="button" onclick="alert('くま！')">くま！</button>
   <main class="scene-stack">
     <section class="scene" id="scene-1">
       <div class="scene__inner">
+        <!-- 触ってOK: シーン見出し -->
         <h2 class="scene__label">Scene 1</h2>
+        <!-- 触ってOK: シーン説明文 -->
         <p class="scene__placeholder">ここに本番コンテンツを配置予定</p>
       </div>
     </section>
     <section class="scene" id="scene-2">
       <div class="scene__inner">
+        <!-- 触ってOK: シーン見出し -->
         <h2 class="scene__label">Scene 2</h2>
+        <!-- 触ってOK: シーン説明文 -->
         <p class="scene__placeholder">ここに本番コンテンツを配置予定</p>
       </div>
     </section>
     <section class="scene" id="scene-3">
       <div class="scene__inner">
+        <!-- 触ってOK: シーン見出し -->
         <h2 class="scene__label">Scene 3</h2>
+        <!-- 触ってOK: シーン説明文 -->
         <p class="scene__placeholder">ここに本番コンテンツを配置予定</p>
       </div>
     </section>

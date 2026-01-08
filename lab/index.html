@@ -1,3 +1,17 @@
+<!--
+【ファイル】lab/index.html
+【役割】演出ストックの一覧とデモリンクを表示する
+【触ってOK】演出リストの行、説明文、リンク
+【注意】演出本体は effects/*.js を編集する
+【関連】lab/style.css / ../script.js
+【確認】/lab/ を開いて表示確認
+-->
+<!--
+===== 調整パラメータ（ここだけ触ってOK）=====
+・見出しと説明文
+・演出一覧テーブルの行（id / 名前 / 説明 / デモリンク）
+===== ここから下は基本触らない =====
+-->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -7,12 +21,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- 見出しと説明文：ラボページの案内 -->
   <header class="page-header">
     <h1>Misagi Animation Effect Lab</h1>
     <p>ここは演出ストックの一覧とデモリンク集</p>
   </header>
 
   <main>
+    <!-- 演出一覧：ここに行を追加する -->
     <section class="table-wrap" aria-labelledby="effect-list">
       <h2 id="effect-list">演出一覧</h2>
       <table>
@@ -24,7 +40,9 @@
             <th scope="col">デモ</th>
           </tr>
         </thead>
+        <!-- 触ってOK: この tbody に行を追加して演出を増やす -->
         <tbody>
+          <!-- デモリンク：/?fx=演出id の形式 -->
           <tr>
             <td><code>fall</code></td>
             <td>Bear Fall</td>

@@ -1,3 +1,11 @@
+<!--
+【ファイル】lab/README.md
+【役割】ラボページの使い方を初心者向けに説明する
+【触ってOK】文章の表現、手順の順番
+【注意】動作の本体は effects と script.js を編集する
+【関連】lab/index.html / effects/*.js
+【確認】/lab/ を開き、リンクの動作確認
+-->
 # Misagi Animation Effect Lab
 
 このページは、Misagi Animation の演出ストックを一覧で確認し、
