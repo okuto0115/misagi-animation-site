@@ -1,4 +1,4 @@
-import { effects } from "./effects/registry.js";
+import { effects } from "../effects/registry.js";
 
 const initEffects = () => {
   const params = new URLSearchParams(window.location.search);

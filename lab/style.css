@@ -1,0 +1,91 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  background: #f7f6fb;
+  color: #1e1d24;
+  padding: 32px clamp(16px, 5vw, 48px) 64px;
+}
+
+.page-header {
+  max-width: 960px;
+  margin: 0 auto 32px;
+}
+
+.page-header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(24px, 4vw, 36px);
+}
+
+.page-header p {
+  margin: 0;
+  color: #4a4a5c;
+}
+
+.table-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 16px 40px rgba(39, 30, 76, 0.08);
+}
+
+.table-wrap h2 {
+  margin: 0 0 16px;
+  font-size: clamp(20px, 3vw, 26px);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid #eceaf2;
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  color: #3a3a4d;
+}
+
+a {
+  color: #1b6ff3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  font-family: "SFMono-Regular", "Menlo", "Monaco", monospace;
+  background: #f2f2f7;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 24px 16px 48px;
+  }
+
+  th,
+  td {
+    padding: 10px 6px;
+    font-size: 0.9rem;
+  }
+}
