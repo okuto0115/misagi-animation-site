@@ -4,11 +4,67 @@
   <meta charset="UTF-8">
   <title>Misagi Animation</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .scene-stack {
+      padding: 120px 8vw 20vh;
+    }
+
+    .scene {
+      min-height: 120vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .scene__inner {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px clamp(20px, 5vw, 64px);
+      border: 1px dashed rgba(80, 80, 120, 0.25);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(2px);
+    }
+
+    .scene__label {
+      margin: 0 0 12px;
+      font-size: clamp(20px, 3vw, 28px);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(60, 60, 90, 0.75);
+    }
+
+    .scene__placeholder {
+      margin: 0;
+      color: rgba(60, 60, 90, 0.6);
+      font-size: clamp(14px, 2vw, 18px);
+    }
+  </style>
 </head>
 <body>
 
   <h1>Misagi Animation Site</h1>
   <p>環境構築テスト成功 🎉</p>
+  <button type="button" onclick="alert('くま！')">くま！</button>
+  <main class="scene-stack">
+    <section class="scene" id="scene-1">
+      <div class="scene__inner">
+        <h2 class="scene__label">Scene 1</h2>
+        <p class="scene__placeholder">ここに本番コンテンツを配置予定</p>
+      </div>
+    </section>
+    <section class="scene" id="scene-2">
+      <div class="scene__inner">
+        <h2 class="scene__label">Scene 2</h2>
+        <p class="scene__placeholder">ここに本番コンテンツを配置予定</p>
+      </div>
+    </section>
+    <section class="scene" id="scene-3">
+      <div class="scene__inner">
+        <h2 class="scene__label">Scene 3</h2>
+        <p class="scene__placeholder">ここに本番コンテンツを配置予定</p>
+      </div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
