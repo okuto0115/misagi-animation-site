@@ -7,6 +7,7 @@
 【確認】/?fx=fall などで動作確認
 */
 import { effects } from "./effects/registry.js";
+import { loader as bearLoader } from "./effects/loader-bearrun.js";
 
 // ===== 調整パラメータ（ここだけ触ってOK）=====
 // 演出指定に使うクエリ名（例: ?fx=fall）
@@ -15,8 +16,15 @@ const FX_QUERY_KEY = "fx";
 const FX_SEPARATOR = ",";
 // ===== ここから下は基本触らない =====
 
-const initEffects = () => {
-  const params = new URLSearchParams(window.location.search);
+const initLoader = (params) => {
+  const loaderParam = params.get("loader");
+  if (loaderParam === "0") {
+    return;
+  }
+  bearLoader.init({ params });
+};
+
+const initEffects = (params) => {
   const fxParam = params.get(FX_QUERY_KEY);
 
   if (!fxParam) {
@@ -63,4 +71,10 @@ const initEffects = () => {
   });
 };
 
-window.addEventListener("DOMContentLoaded", initEffects);
+const initPage = () => {
+  const params = new URLSearchParams(window.location.search);
+  initLoader(params);
+  initEffects(params);
+};
+
+window.addEventListener("DOMContentLoaded", initPage);

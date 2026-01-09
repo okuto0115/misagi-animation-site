@@ -11,6 +11,7 @@
 ・:root の背景色（スクロール演出で変化）
 ・body のフォントと背景
 ・.bear の影の強さ
+・.reveal の距離/ぼかし
 ===== ここから下は基本触らない =====
 */
 * {
@@ -80,4 +81,21 @@ body {
     animation: none;
     opacity: 0;
   }
+}
+
+/* 触ってOK: スクロールで浮かび上がるテキスト用 */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance, 24px));
+  filter: blur(var(--reveal-blur, 6px));
+  transition-property: opacity, transform, filter;
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.2, 0.6, 0.2, 1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal.reveal--in {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }
